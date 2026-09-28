@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-add-sender-email
+      author: codex
+      changes:
+        - addColumn:
+            tableName: invitations
+            columns:
+              - column:
+                  name: sender_email
+                  type: varchar(254)
+                  defaultValue: no-reply@birga.local
+                  constraints:
+                    nullable: false

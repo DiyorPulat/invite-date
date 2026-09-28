@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/001-create-invitations.yaml
+  - include:
+      file: db/changelog/002-add-invitation-experience.yaml
+  - include:
+      file: db/changelog/003-add-sender-email.yaml
+  - include:
+      file: db/changelog/004-add-owner-token-and-expiry.yaml

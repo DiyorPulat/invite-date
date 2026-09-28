@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004-add-owner-token-and-expiry
+      author: codex
+      changes:
+        - addColumn:
+            tableName: invitations
+            columns:
+              - column:
+                  name: owner_token
+                  type: uuid
+                  defaultValueComputed: gen_random_uuid()
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: expires_at
+                  type: timestamp with time zone
+                  defaultValueComputed: CURRENT_TIMESTAMP + INTERVAL '30 days'
+                  constraints:
+                    nullable: false

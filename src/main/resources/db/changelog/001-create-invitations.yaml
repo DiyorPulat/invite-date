@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-invitations
+      author: codex
+      changes:
+        - sql:
+            sql: |
+              CREATE TABLE IF NOT EXISTS invitations (
+                id UUID PRIMARY KEY,
+                sender_name VARCHAR(100) NOT NULL,
+                receiver_name VARCHAR(100) NOT NULL,
+                date_type VARCHAR(30) NOT NULL,
+                proposed_date TIMESTAMP WITH TIME ZONE NULL,
+                custom_message TEXT NULL,
+                status VARCHAR(20) NOT NULL,
+                response_details JSONB NULL,
+                view_count INTEGER NOT NULL DEFAULT 0,
+                created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                CONSTRAINT chk_invitations_status CHECK (status IN ('CREATED', 'ACCEPTED', 'DECLINED')),
+                CONSTRAINT chk_invitations_date_type CHECK (date_type IN ('coffee', 'dinner', 'walk', 'movie')),
+                CONSTRAINT chk_invitations_view_count CHECK (view_count >= 0)
+              );
+        - sql:
+            sql: CREATE INDEX IF NOT EXISTS idx_invitations_status ON invitations(status);

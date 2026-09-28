@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-add-invitation-experience
+      author: codex
+      changes:
+        - addColumn:
+            tableName: invitations
+            columns:
+              - column:
+                  name: experience
+                  type: jsonb
+                  remarks: Creator-configured interactive invitation content
