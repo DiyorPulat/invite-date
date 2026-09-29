@@ -18,7 +18,7 @@ docker compose up -d
 The application starts on `http://localhost:8080`. The repository does not contain
 real credentials; keep local values in `.env` or environment variables.
 
-Useful environment variables: `DB_URL`, `PG_HOST`, `PG_PORT`, `PG_DATABASE`, `PG_USERNAME`, `PG_PASSWORD`, `PUBLIC_BASE_URL`, and `CORS_ALLOWED_ORIGINS` (comma-separated or `*`). Set `PUBLIC_BASE_URL` to the frontend domain in production, e.g. `https://example.uz`; QR codes point to `{PUBLIC_BASE_URL}/invite/{id}`. CORS credentials are disabled, so all origins can be allowed with `CORS_ALLOWED_ORIGINS=*`.
+Useful environment variables: `DB_URL`, `PG_HOST`, `PG_PORT`, `PG_DATABASE`, `PG_USERNAME`, `PG_PASSWORD`, `PUBLIC_BASE_URL`, and `CORS_ALLOWED_ORIGINS` (comma-separated or `*`). In production, `PUBLIC_BASE_URL` defaults to `https://boramizmi.uz`; set it explicitly when deploying another domain. QR codes point to `{PUBLIC_BASE_URL}/invite/{id}`. CORS credentials are disabled, so all origins can be allowed with `CORS_ALLOWED_ORIGINS=*`.
 
 ## Email + PDF notifications
 
